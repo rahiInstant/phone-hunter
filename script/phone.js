@@ -1,7 +1,7 @@
 var items;
 const showAllBtn = document.getElementById("show-all-btn");
 const showLessBtn = document.getElementById("show-less-btn");
-const modal = document.getElementById('modal')
+const modal = document.getElementById("modal");
 
 const loadPhoneData = async (brand = "iphone", isShowAll) => {
   const res = await fetch(
@@ -78,7 +78,6 @@ function handleSearch(isShowAll) {
   // brand.value = ''
 }
 
-
 // showAllBtn.onclick = function () {
 //   displayPhone(items, items.length, 5);
 // };
@@ -91,10 +90,9 @@ showAllBtn.onclick = function () {
   handleSearch(true);
 };
 
-showLessBtn.onclick = function() {
-  handleSearch(false)
-}
-
+showLessBtn.onclick = function () {
+  handleSearch(false);
+};
 
 function handleLoader(isLoading) {
   const loader = document.getElementById("loader").classList;
@@ -105,16 +103,26 @@ function handleLoader(isLoading) {
   }
 }
 
+async function loadPhoneDetail(id) {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/phone/${id}`
+  );
+  const data = await res.json();
+  const phoneDetail = data.data
+  console.log(phoneDetail)
+  document.getElementById('img').setAttribute('src',phoneDetail.image)
+
+}
 
 function handleDetailBtn(id) {
-  console.log('detail')
-  console.log(id)
-  // document.getElementById('img').
-  modal.classList.remove('opacity-0')
-  modal.classList.remove('pointer-events-none')
+  console.log("detail");
+  console.log(id);
+  loadPhoneDetail(id);
+  modal.classList.remove("opacity-0");
+  modal.classList.remove("pointer-events-none");
 }
 
 function handleContinueBtn() {
-  modal.classList.add('opacity-0')
-  modal.classList.add('pointer-events-none')
+  modal.classList.add("opacity-0");
+  modal.classList.add("pointer-events-none");
 }
