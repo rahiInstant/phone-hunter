@@ -19,7 +19,11 @@
   </head>
   <body class="font-poppins">
     <header>
-      <h2 class="text-center mt-3 font-extrabold text-3xl md:text-5xl uppercase">phone hunting</h2>
+      <h2
+        class="text-center mt-3 font-extrabold text-3xl md:text-5xl uppercase"
+      >
+        phone hunting
+      </h2>
     </header>
     <main>
       <section></section>
@@ -29,23 +33,22 @@
         <div
           class="flex flex-col md:flex-row justify-center gap-4 px-5 lg:px-0"
         >
-          <div class="w-full flex flex-row gap-4">
-            <input
-              class="flex-1 rounded-lg  p-3 border outline-none"
-              id="hunterField"
-              type="text"
-              placeholder="Find your phone "
-            />
-            <span
-              id="loader"
-              class="loading loading-dots loading-lg hidden"
-            ></span>
-          </div>
+          <input
+            class="flex-1 rounded-lg p-3 border outline-none"
+            id="hunterField"
+            type="text"
+            placeholder="Find your phone "
+          />
+
           <button
-            class="text-xl font-bold text-white bg-blue-600 px-3 py-2.5 rounded-lg"
+            class="text-xl font-bold text-white bg-blue-600 px-3 py-2.5 rounded-lg flex items-center justify-center gap-3"
             id="hunterBtn"
             onclick="handleSearch()"
           >
+            <span
+              id="loader"
+              class="loading loading-spinner loading-md hidden"
+            ></span>
             Search
           </button>
         </div>
@@ -134,8 +137,7 @@
                   ><span id="display"></span>
                 </h2>
                 <h2>
-                  <span class="font-bold">GPS: </span
-                  ><span id="gps"></span>
+                  <span class="font-bold">GPS: </span><span id="gps"></span>
                 </h2>
               </div>
               <button
