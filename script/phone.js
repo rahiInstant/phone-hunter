@@ -114,6 +114,7 @@ async function loadPhoneDetail(id) {
   document.getElementById("modelName").innerText = phoneDetail.name;
   document.getElementById("storage").innerText = phoneDetail.mainFeatures.memory;
   document.getElementById("display").innerText = phoneDetail.mainFeatures.displaySize;
+  document.getElementById("gps").innerText = phoneDetail.others?.GPS || 'No GPS available';
 }
 
 function handleDetailBtn(id) {
