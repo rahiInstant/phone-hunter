@@ -104,32 +104,34 @@
             <div>
               <img
                 id="img"
-                class="h-52 lg:h-72 w-40 lg:w-52"
+                class="h-52 lg:h-60 w-40 lg:w-40"
                 src="./images/success.png"
                 alt=""
               />
             </div>
-            <div
-              class="text-xl lg:text-2xl font-bold text-[#27AE60] mt-5 lg:mt-9"
-            >
-              success
+            <div class="flex flex-col items-start">
+              <div
+                class="text-xl lg:text-2xl font-bold text-black mt-5 lg:mt-9"
+                id="modelName"
+              >
+                success
+              </div>
+              <div class="text-base mt-4 text-justify">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+              </div>
+              <div class="mt-3 text-justify">
+                <h2><span class="font-bold">Storage: </span><span id="storage"></span></h2>
+                <h2><span class="font-bold">Display Size: </span><span id="display"></span></h2>
+              </div>
+              <button
+                onclick="handleContinueBtn()"
+                id="complete"
+                class="w-36 lg:w-40 h-10 lg:h-12 rounded-xl place-self-end bg-red-600 text-white text-base lg:text-xl font-semibold mt-5"
+              >
+                Close
+              </button>
             </div>
-            <div
-              class="text-base lg:text-xl font-extrabold mt-4 lg:mt-9 text-center"
-            >
-              Thank you for Booking Our Bus Seats. We are working hard to find
-              the best service and deals for you
-            </div>
-            <div class="text-base lg:text-xl font-light mt-4 text-center">
-              Shortly you will find a confirmation in your email.
-            </div>
-            <button
-              onclick="handleContinueBtn()"
-              id="complete"
-              class="w-36 lg:w-48 h-10 lg:h-12 rounded-3xl bg-[#27AE60] text-white text-base lg:text-xl font-semibold mt-5"
-            >
-              Continue
-            </button>
           </div>
         </div>
       </section>

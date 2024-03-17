@@ -108,10 +108,12 @@ async function loadPhoneDetail(id) {
     `https://openapi.programming-hero.com/api/phone/${id}`
   );
   const data = await res.json();
-  const phoneDetail = data.data
-  console.log(phoneDetail)
-  document.getElementById('img').setAttribute('src',phoneDetail.image)
-
+  const phoneDetail = data.data;
+  console.log(phoneDetail);
+  document.getElementById("img").setAttribute("src", phoneDetail.image);
+  document.getElementById("modelName").innerText = phoneDetail.name;
+  document.getElementById("storage").innerText = phoneDetail.mainFeatures.memory;
+  document.getElementById("display").innerText = phoneDetail.mainFeatures.displaySize;
 }
 
 function handleDetailBtn(id) {
