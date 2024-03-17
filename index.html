@@ -33,9 +33,14 @@
             type="text"
             placeholder="Find your phone "
           />
+          <span
+            id="loader"
+            class="loading loading-dots loading-lg hidden"
+          ></span>
           <button
             class="text-xl font-bold text-white bg-blue-600 px-3 py-2.5 rounded-lg"
             id="hunterBtn"
+            onclick="handleSearch()"
           >
             Search
           </button>
@@ -65,7 +70,6 @@
         <div class="p-8 hidden" id="show-all-btn">
           <div
             class="w-full flex gap-2 justify-end font-bold items-center cursor-pointer"
-            
           >
             <p class="border-b-2">show all</p>
             <p
@@ -85,6 +89,47 @@
             >
               >
             </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <!-- modal section -->
+        <div
+          id="modal"
+          class="fixed top-0 left-0 w-screen h-screen flex justify-center items-center opacity-0 pointer-events-none"
+        >
+          <div
+            class="py-5 lg:py-12 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 lg:px-14 bg-white rounded-2xl border flex flex-col items-center w-[300px] lg:w-[500px]"
+          >
+            <div>
+              <img
+                id="img"
+                class="h-10 lg:h-20 w-10 lg:w-20"
+                src="./images/success.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="text-xl lg:text-2xl font-bold text-[#27AE60] mt-5 lg:mt-9"
+            >
+              success
+            </div>
+            <div
+              class="text-base lg:text-xl font-extrabold mt-4 lg:mt-9 text-center"
+            >
+              Thank you for Booking Our Bus Seats. We are working hard to find
+              the best service and deals for you
+            </div>
+            <div class="text-base lg:text-xl font-light mt-4 text-center">
+              Shortly you will find a confirmation in your email.
+            </div>
+            <button
+              onclick="handleContinueBtn()"
+              id="complete"
+              class="w-36 lg:w-48 h-10 lg:h-12 rounded-3xl bg-[#27AE60] text-white text-base lg:text-xl font-semibold mt-5"
+            >
+              Continue
+            </button>
           </div>
         </div>
       </section>
