@@ -1,26 +1,40 @@
-const loadPhoneData = async (brand='iphone') => {
+var items;
+const showAllBtn = document.getElementById("show-all-btn");
+const showLessBtn = document.getElementById("show-less-btn");
+
+const loadPhoneData = async (brand = "iphone") => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${brand}`
   );
   const data = await res.json();
+  globalThis.items = data.data;
   const phones = data.data;
-  document.getElementById('result').innerText = `${phones.length} items shows.`
+  document.getElementById("result").innerText = `${items.length} items shows.`;
   displayPhone(phones);
 };
-
-const displayPhone = (phones) => {
-  const phoneContainer = document.getElementById("phone-container");
-  const showAllBtn = document.getElementById('showAllBtn')
-
-  if(phones.length > 5) {
-    showAllBtn.classList.remove('hidden')
+function handleShowAllBtn(length = 6) {
+  if (length > 5) {
+    showAllBtn.classList.remove("hidden");
   } else {
-    showAllBtn.classList.add('hidden')
+    showAllBtn.classList.add("hidden");
   }
-  phoneContainer.textContent = ''
-  phones = phones.slice(0,5)
+}
+
+function handleShowLessBtn(length = 6) {
+  if (length > 5) {
+    showLessBtn.classList.add("hidden");
+  } else {
+    showLessBtn.classList.remove("hidden");
+  }
+}
+
+const displayPhone = (phones, lastIndex = 5, length) => {
+  const phoneContainer = document.getElementById("phone-container");
+  handleShowAllBtn(length);
+  handleShowLessBtn(length);
+  phoneContainer.textContent = "";
+  phones = phones.slice(0, lastIndex);
   phones.forEach((phone) => {
-    console.log(phone);
     const phoneCard = document.createElement("div");
     phoneCard.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-7xl mx-auto`;
     phoneCard.innerHTML = `
@@ -45,6 +59,14 @@ const displayPhone = (phones) => {
 loadPhoneData();
 
 document.getElementById("hunterBtn").addEventListener("click", function () {
-  const brand = document.getElementById('hunterField').value
-  loadPhoneData(brand)
+  const brand = document.getElementById("hunterField").value;
+  loadPhoneData(brand);
 });
+
+showAllBtn.onclick = function () {
+  displayPhone(items, items.length, 5);
+};
+
+showLessBtn.onclick = function () {
+  displayPhone(items, 5, 6);
+};
